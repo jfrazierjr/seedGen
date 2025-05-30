@@ -13,6 +13,15 @@ SetWorkingDir %A_ScriptDir%
 
 Coordmode, Mouse, Screen
 
+; Save Box
+saveX := 1750
+saveY := 770
+
+; Back box
+
+backX := 370
+backY := 1194
+
 ; Quit
 
 ; Ravenhearst 6.2
@@ -20,8 +29,8 @@ quitX := 581
 quitY := 1225
 
 ; Alpha 18.3
-quitX := 1160
-quitY := 1326
+quitX := 1150
+quitY := 1377
 
 if WinExist("7 Days to die")
 {
@@ -47,8 +56,17 @@ else
     Exit, 1
 }
 
+Stdout("Clicking Back button to Save")
+MouseClick, Left, backX, backY ; Location of the Back button
+
 Sleep, 500
 
+Stdout("Clicking Save")
+Sleep, 3000
+MouseClick, Left, saveX, saveY ; Location of the Back button
+
+Sleep 15000
+Stdout("Exiting game ")
 MouseClick, Left, quitX, quitY ; Click on screen to ensure it's active
 
 NR_temp =0 ; init

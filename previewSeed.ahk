@@ -34,20 +34,20 @@ Coordmode, Mouse, Screen
 
 ; World Seed Box
 
-worldSeedX := 874
-worldSeedY := 341
+worldSeedX := 624
+worldSeedY := 310
 
 ; Arrows horizontal location
-leftArrowX := 696
-rightArrowX := 1071
+leftArrowX := 511
+rightArrowX := 740
 
 ; World Size vertical arrows
 
-sizeArrowY := 406
+sizeArrowY := 365
 
 ; Towns vertical arrows
 
-townsArrowY := 516
+townsArrowY := 476
 
 ; Rivers vertical arrows
 
@@ -59,11 +59,11 @@ riversArrowY := 626
 
 ; Cracks vertical arrows
 
-cratersArrowY := 676
+cratersArrowY := 645
 
 ; Lakes vertical arrows
 
-cracksArrowY := 736
+cracksArrowY := 702
 
 ; Plains Weight vertical arrows
 
@@ -87,8 +87,8 @@ randomArrowY := 1016
 
 ; World Generation Button
 
-worldGenX := 900
-worldGenY := 1066
+worldGenX := 1058
+worldGenY := 1195
 
 WinActivate, 7 Days To Die
 
@@ -137,7 +137,10 @@ else if RWGSize = Default
     move := 0
 }
 
+Stdout("Changing World Size Option")
 changeOption("World Size", RWGSize, move, leftArrowX, rightArrowX, sizeArrowY)
+Stdout("Changed World Size Option")
+Sleep, 3000
 
 changeNoneToManyOption("Gen Towns", RWGTowns, leftArrowX, rightArrowX, townsArrowY)
 changeNoneToManyOption("Gen Wilderness", RWGWilderness, leftArrowX, rightArrowX, wildernessArrowY)
@@ -193,7 +196,6 @@ changeZeroToTenOption(name, default, value, leftArrowX, rightArrowX, arrowY)
 
     changeOption(name, value, move, leftArrowX, rightArrowX, arrowY)
 }
-
 changeNoneToManyOption(name, value, leftArrowX, rightArrowX, arrowY)
 {
     ; Default value to avoid errors
