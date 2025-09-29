@@ -40,50 +40,49 @@ worldSeedY := 310
 ; Arrows horizontal location
 leftArrowX := 511
 rightArrowX := 740
+rightArrowRow2X := 1275
+leftArrowRow2X := 1030
+
+wastelandY := 975
+snowY := 920
+desertY := 870
+burntY := 810
+pineY := 755
 
 ; World Size vertical arrows
 
 sizeArrowY := 365
 
 ; Towns vertical arrows
-
 townsArrowY := 476
 
+; Wilderness vertical arrows
+; wildernessArrowY := 566
+wildernessArrowY := 533
+
 ; Rivers vertical arrows
-
-wildernessArrowY := 566
-
-; Craters vertical arrows
-
-riversArrowY := 626
+; riversArrowY := 626
+riversArrowY := 589
 
 ; Cracks vertical arrows
-
+;cratersArrowY := 645
 cratersArrowY := 645
 
 ; Lakes vertical arrows
+; cracksArrowY := 702
+cracksArrowY := 700
 
-cracksArrowY := 702
+; Lakes vertical arrows
+lakesArrowY := 756
 
 ; Plains Weight vertical arrows
-
-lakesArrowY := 796
+plainsArrowY := 480
 
 ; Hills Weight vertical arrows
-
-plainsArrowY := 846
+hillsArrowY := 531
 
 ; Mountains Weight vertical arrows
-
-hillsArrowY := 906
-
-; Random Weight vertical arrows
-
-mountainsArrowY := 956
-
-; Random Weight vertical arrows
-
-randomArrowY := 1016
+mountainsArrowY := 587
 
 ; World Generation Button
 
@@ -92,7 +91,7 @@ worldGenY := 1195
 
 WinActivate, 7 Days To Die
 
-Sleep, 500
+Sleep, 5000
 
 Send, {F1}
 
@@ -140,7 +139,7 @@ else if RWGSize = Default
 Stdout("Changing World Size Option")
 changeOption("World Size", RWGSize, move, leftArrowX, rightArrowX, sizeArrowY)
 Stdout("Changed World Size Option")
-Sleep, 3000
+Sleep, 1000
 
 changeNoneToManyOption("Gen Towns", RWGTowns, leftArrowX, rightArrowX, townsArrowY)
 changeNoneToManyOption("Gen Wilderness", RWGWilderness, leftArrowX, rightArrowX, wildernessArrowY)
@@ -150,10 +149,79 @@ changeNoneToManyOption("Craters", RWGCraters, leftArrowX, rightArrowX, cratersAr
 changeNoneToManyOption("Cracks", RWGCracks, leftArrowX, rightArrowX, cracksArrowY)
 changeNoneToManyOption("Lakes", RWGLakes, leftArrowX, rightArrowX, lakesArrowY)
 
-changeZeroToTenOption("Plains Weight", 6, RWGPlains, leftArrowX, rightArrowX, plainsArrowY)
-changeZeroToTenOption("Hills Weight", 6, RWGHills, leftArrowX, rightArrowX, hillsArrowY)
-changeZeroToTenOption("Mountains Weight", 3, RWGMountains, leftArrowX, rightArrowX, mountainsArrowY)
-changeZeroToTenOption("Random Weight", 0, RWGRandom, leftArrowX, rightArrowX, randomArrowY)
+
+changeZeroToTenOption("Mountains Weight", 2, RWGMountains, leftArrowRow2X, rightArrowRow2X, mountainsArrowY)
+Sleep, 2000
+;Stdout("Unknown option '" . value . "' for " . name)
+
+changeZeroToTenOption("Hills Weight", 4, RWGHills, leftArrowRow2X, rightArrowRow2X, hillsArrowY)
+Sleep, 2000
+
+changeZeroToTenOption("Plains Weight", 4, RWGPlains, leftArrowRow2X, rightArrowRow2X, plainsArrowY)
+Sleep, 2000
+
+
+MouseClick, Left, leftArrowRow2X, wastelandY
+Sleep, 300
+MouseClick, Left, leftArrowRow2X, wastelandY
+Sleep, 300
+MouseClick, Left, leftArrowRow2X, wastelandY
+Sleep, 300
+MouseClick, Left, leftArrowRow2X, wastelandY
+Sleep, 300
+MouseClick, Left, leftArrowRow2X, wastelandY
+Sleep, 300
+MouseClick, Left, leftArrowRow2X, wastelandY
+Sleep, 300
+MouseClick, Left, leftArrowRow2X, wastelandY
+Sleep, 300
+MouseClick, Left, leftArrowRow2X, wastelandY
+
+
+Sleep, 300
+MouseClick, Left, leftArrowRow2X, snowY
+Sleep, 300
+MouseClick, Left, leftArrowRow2X, snowY
+Sleep, 300
+MouseClick, Left, leftArrowRow2X, snowY
+Sleep, 300
+MouseClick, Left, leftArrowRow2X, snowY
+Sleep, 300
+MouseClick, Left, leftArrowRow2X, snowY
+Sleep, 300
+MouseClick, Left, leftArrowRow2X, snowY
+Sleep, 300
+MouseClick, Left, leftArrowRow2X, snowY
+Sleep, 300
+MouseClick, Left, leftArrowRow2X, snowY
+
+MouseClick, Left, leftArrowRow2X, desertY
+Sleep, 300
+MouseClick, Left, leftArrowRow2X, desertY
+Sleep, 300
+MouseClick, Left, leftArrowRow2X, desertY
+Sleep, 300
+MouseClick, Left, leftArrowRow2X, desertY
+Sleep, 300
+MouseClick, Left, leftArrowRow2X, desertY
+Sleep, 300
+MouseClick, Left, leftArrowRow2X, desertY
+
+Sleep, 300
+MouseClick, Left, leftArrowRow2X, burntY
+Sleep, 300
+MouseClick, Left, leftArrowRow2X, burntY
+
+MouseClick, Left, rightArrowRow2X, pineY
+Sleep, 300
+MouseClick, Left, rightArrowRow2X, pineY
+Sleep, 300
+MouseClick, Left, rightArrowRow2X, pineY
+Sleep, 300
+
+
+
+;;changeZeroToTenOption("Random Weight", 0, RWGRandom, leftArrowX, rightArrowX, randomArrowY)
 
 ; Start generation
 Stdout("Generate World")

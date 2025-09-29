@@ -62,10 +62,10 @@ MouseClick, Left, backX, backY ; Location of the Back button
 Sleep, 500
 
 Stdout("Clicking Save")
-Sleep, 3000
+Sleep, 1500
 MouseClick, Left, saveX, saveY ; Location of the Back button
 
-Sleep 15000
+Sleep 8000
 Stdout("Exiting game ")
 MouseClick, Left, quitX, quitY ; Click on screen to ensure it's active
 

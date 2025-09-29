@@ -55,7 +55,8 @@ SECONDS=0
 duration=$SECONDS
 
 if grep "Generation Complete" "$LOG"; then
-	echo "World generated in $((duration / 60)) minutes and $((duration % 60)) seconds"
+	echo "World '${SEED}'generated in $((duration / 60)) minutes and $((duration % 60)) seconds."
+	
 
 	# Get county name
 	# shellcheck disable=SC2012
@@ -77,7 +78,9 @@ if grep "Generation Complete" "$LOG"; then
 	fi
 	RATE=$("${BIN}/rate.py" "${RATE_OPTS[@]}" "${WORLD}/prefabs.xml")
 	echo "${RATE}"
+
 	RATING=$(tail -1 <<< "$RATE" | cut -d ' ' -f 1)
+	echo "World '${SEED}' [${SIZE}] generated in $((duration / 60)) minutes and $((duration % 60)) seconds.  Rating $RATING" >> log.seedGen.txt
 
 	if [[ -n "${RATING_THRESHOLD-}" && "$RATING" -lt "${RATING_THRESHOLD}" ]]; then
 		echo "Rating ${RATING} below threshold ${RATING_THRESHOLD}; skipping after $((duration / 60)) minutes and $((duration % 60)) seconds"
